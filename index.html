@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love</title>
+    <link rel="shortcut icon" href="https://th.bing.com/th/id/R.c52a6ca4b798e80a5519571bbab7ae41?rik=QwwUbT1WLr9JGQ&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fheart-png-heart-png-image-free-download-2555.png&ehk=53syolBvFrxc8w886vqld%2fCfQwOE00Wy31ZGWcAIqVc%3d&risl=&pid=ImgRaw&r=0" type="image/x-icon">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    main{
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .wrapper{
+        padding: 1rem 0px;
+        height: 20rem;
+        width: 15rem;
+        border-radius: 7px;
+        position: relative;
+        /* border: 2px solid palevioletred; */
+    }
+    h1{
+        text-align: center;
+        font-size: 2rem;
+        color: palevioletred;
+    }
+    #gif{
+        height: 6rem;
+        width: 6rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    button{
+        position: absolute;
+        border: none;
+        padding: 7px 1rem;
+        /* background-color: palevioletred; */
+        border-radius: 7px;
+        cursor: pointer;
+    }
+    .bttn{
+        position: absolute;
+        bottom: 20%;
+    }
+    button:nth-child(1){
+        margin-left: 2rem;
+        color: white;
+        background-color: palevioletred;
+    }
+    button:nth-child(2){
+        margin-left: 8rem;
+        background-color: white;
+        color: palevioletred;
+        border: 1px solid palevioletred;
+    }
+</style>
+<body>
+    <main>
+        <div class="wrapper">
+            <h1 id="question">Do You Love Me?</h1>
+            <img id="gif" src="https://gifdb.com/images/high/cute-happy-peach-cat-n2jp0rqmli35io0f.gif" alt="gif">
+            <br>
+            <div class="bttn">
+                <button class="yesbttn">Yes</button>
+                <button class="nobttn">No</button>
+            </div>
+
+        </div>
+    </main>
+</body>
+<script>
+    let question=document.querySelector("#question");
+    let gif=document.getElementById("gif");
+    let yes=document.querySelector(".yesbttn");
+    let no=document.querySelector(".nobttn");
+    let wrapper=document.querySelector(".wrapper");
+    let wrapperRect=wrapper.getBoundingClientRect();
+    let noRect=no.getBoundingClientRect();
+
+    yes.addEventListener("click", ()=>{
+        // gif.src="https://i.pinimg.com/originals/18/33/c3/1833c366314e131ecde70b3469c36c92.gif";
+        gif.src="https://www.icegif.com/wp-content/uploads/love-heart-icegif.gif"
+        question.innerHTML="Love You Too:)";
+        yes.style.display="none";
+        no.style.display="none";
+    })
+
+
+    no.addEventListener("mouseover", ()=>{
+        const i=Math.floor(Math.random() * (wrapperRect.width - noRect.width))+1;
+        const j=Math.floor(Math.random() * (wrapperRect.height - noRect.height))+1; 
+        // alert("hello")
+        no.style.left= i + "px";
+        no.style.top= j + "px";
+    })
+</script>
+</html>
